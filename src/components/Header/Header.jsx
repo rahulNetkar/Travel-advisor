@@ -7,14 +7,14 @@ import useStyles from './styles';
 const Header = () => {
     const classes = useStyles();
     return (
-        <AppBar position='static' style={{ backgroundColor: 'grey' }} >
+        <AppBar position='static' >
             <Toolbar className={classes.toolbar} >
                 <Typography variant='h5' className={classes.title} >
-                    Travel Advisor
+                    Travel
                 </Typography>
                 <Box display="flex" >
                     <Typography variant='h6' className={classes.title} >
-                        Explore New Places
+                        Search new places
                     </Typography>
                     {/* <Autocomplete> */}
                     <div className={classes.search} >
