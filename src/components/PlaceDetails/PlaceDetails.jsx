@@ -5,8 +5,10 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
-const PlaceDetails = ({ place }) => {
+const PlaceDetails = ({ place, selected, refProp }) => {
     const classes = useStyles();
+
+    if (selected) refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" })
 
     return (
         <Card elevation={6} >
@@ -18,12 +20,11 @@ const PlaceDetails = ({ place }) => {
             <CardContent>
                 <Typography gutterBottom variant='h5' > {place.name} </Typography>
                 <Box display='flex' justifyContent='space-between' >
-                    <Typography variant='subtitle1' >Price</Typography>
-                    <Typography variant='subtitle1' gutterBottom >{place.price_level ? place.price_level : 'No price levels'}</Typography>
+                    <Rating name="read-only" value={Number(place.rating)} readOnly />
                 </Box>
                 <Box display='flex' justifyContent='space-between' >
-                    <Typography variant='subtitle1' >Rating</Typography>
-                    <Typography variant='subtitle1' gutterBottom >{place.rating ? place.rating : 'No ratings'}</Typography>
+                    <Typography variant='subtitle1' >Price</Typography>
+                    <Typography variant='subtitle1' gutterBottom >{place.price_level ? place.price_level : 'No price levels'}</Typography>
                 </Box>
                 <Box display='flex' justifyContent='space-between' >
                     <Typography variant='subtitle1' >Ranking</Typography>
